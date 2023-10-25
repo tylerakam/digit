@@ -1,7 +1,7 @@
 import './style.css'
-import javascriptLogo from '../ThreeJS/javascript.svg'
+import javascriptLogo from '../javascript.svg'
 import viteLogo from '/vite.svg'
-import { setupCounter } from '../ThreeJS/counter.js'
+import { setupCounter } from '../counter.js'
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
