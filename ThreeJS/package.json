@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "build": "vite build",
+    "preview": "vite preview",
+    "dev": "vite"
   },
   "devDependencies": {
     "vite": "^4.4.5"
