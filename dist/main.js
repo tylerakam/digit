@@ -1,7 +1,7 @@
 //import './style.css'
-import javascriptLogo from '../javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from '../counter.js'
+// import javascriptLogo from '../javascript.svg'
+// import viteLogo from '/vite.svg'
+// import { setupCounter } from '../counter.js'
 // import { TextGeometry } from 'three/addons/geometries/TextGeometry.js';
 // import {FontLoader} from "three/addons/loaders/FontLoader.js";
 import * as THREE from 'https://cdn.skypack.dev/three@0.128.0/build/three.module.js';
