@@ -137,24 +137,24 @@ const smileMesh = new THREE.Mesh(sphereGeometry, smileMaterial);
 scene.add(smileMesh);
 
 // trying to make text appear
-const loader = new FontLoader();
-
-loader.load( 'fonts/helvetiker_regular.typeface.json', function ( font ) {
-
-    const geometry = new TextGeometry( 'Welcome to the Arcade!', {
-        font: font,
-        size: 300,
-        height: 5,
-        curveSegments: 12,
-        bevelEnabled: true,
-        bevelThickness: 10,
-        bevelSize: 8,
-        bevelOffset: 0,
-        bevelSegments: 5
-    } );
-} );
-
-scene.add(TextGeometry);
-    TextGeometry.position.x = 10
-    TextGeometry.position.y = 10
-    TextGeometry.position.z =10
+// const loader = new FontLoader();
+//
+// loader.load( 'fonts/helvetiker_regular.typeface.json', function ( font ) {
+//
+//     const geometry = new TextGeometry( 'Welcome to the Arcade!', {
+//         font: font,
+//         size: 300,
+//         height: 5,
+//         curveSegments: 12,
+//         bevelEnabled: true,
+//         bevelThickness: 10,
+//         bevelSize: 8,
+//         bevelOffset: 0,
+//         bevelSegments: 5
+//     } );
+// } );
+//
+// scene.add(TextGeometry);
+//     TextGeometry.position.x = 10
+//     TextGeometry.position.y = 10
+//     TextGeometry.position.z =10
