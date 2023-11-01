@@ -313,7 +313,7 @@
         <p>In your new <code>main.js</code> javascript file, you'll need to tell it to import the Three.JS node package
             module in order to reference the many pre-built 3D-building methods and objects.</p>
         <p>To do this, simply paste these <code>import</code> instructions on the first line of your JS file:</p>
-        <pre>import * as THREE from 'three';
+        <pre>import * as THREE from 'https://cdn.skypack.dev/three@0.128.0/build/three.module.js';
         </pre>
         <h2 id="scene-setup">Scene Setup</h2>
         <p><a href="https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene">Helpful Three.JS
@@ -327,6 +327,7 @@
         <p>We create these objects by declaring a new <code>const</code>, a type of variable in Javascript, and defining
             it
             with new THREE methods.</p>
+        <p>NOTE: <code>const</code> needs some space from everything else. Follow this tutorial, but when you're done implementing your <code>const</code> for a section of the project, move it above everything except your import lines! </p>
         <pre>// Setup
         
         const scene = new THREE.Scene();
@@ -502,9 +503,9 @@
         <p>In order to add the Orbit Controls as a function, we need to import that package from the three.js
             dependencies.
             At the top of your document where you imported THREE.JS, (directly underneath
-            <code>import * as THREE from 'three';</code>) add this line of code:
+            <code>import * as THREE from 'https://cdn.skypack.dev/three@0.128.0/build/three.module.js';</code>) add this line of code:
         </p>
-        <pre>import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+        <pre>import { OrbitControls } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/controls/OrbitControls.js';
         </pre>
         <p>Then, under your <code>Helpers</code>, activate your orbit controls by declaring it as a constant:</p>
         <pre>// Orbit Control
@@ -715,7 +716,7 @@
                 <b>Step 3</b>
             </h3>
             <p>
-                Within your <code>package.json</code> file, add the fillowing line of code inside your
+                Within your <code>package.json</code> file, add the following line of code inside your
                 <code>"scripts"</code>:
 
             <pre>
@@ -754,6 +755,7 @@
                 Now we just need to push the project to a repository on GitHub.
                 Go to <a href="https://github.com/">GitHub.com</a> and create a new repository if you haven't made one and already created your project inside it.
             </p>
+            <p>Note: If you have created a repo already, there are a few things that you need to do so that you can publish your page to github pages! For now, follow along, and we'll go over a few things you'll need to do make sure you're publishing at the end!</p>
             <p>
                 Fill in your repository name and a short description. <i>Tip: try naming your remote repo the same as
                     what you named your Three.JS project lcoally.</i>
@@ -815,13 +817,34 @@
                 After a few minutes, go to the "Pages" tab in your repository settings, and your website link will be
                 there.
             </p>
+            <h3>Cleanup</h3>
+            <p>This is where we want to double-check what we've got inside our folder hierarchy, and make a few changes.</p>
             <p>
-                If you're having issues getting your webpage to publish, double check a few things:
+                If you're having issues getting your webpage to publish, double-check a few things:
             </p>
-            <pre>Make sure you ran "npm install gh-pages".</pre>
-            <pre>Make sure you have copied the script that runs the npm deploy into your .JSON file properly.</pre>
-            <pre>Make sure your github pages are set to deploy from your branch and not your main repo</pre>
-            <pre>Make sure you have your dist folder in the right place. It needs to be inside your ThreeJS folder inside your work space(this is the folder that contains your Index.html, Style.css, main.JS, etc. If it helps, the .JSON file that you have needs to call from that same directory, but inside the dist).</pre>
+            <ul>
+            <li>Make sure you ran "npm install gh-pages".</li>
+            <li>Make sure you have copied the script that runs the npm deploy into your .JSON file properly.</li>
+            <li>Make sure your github pages are set to deploy from your branch and not your main repo</li>
+            <li>Make sure you have your dist folder in the right place. It needs to be inside your ThreeJS folder inside your work space. (this is the folder that contains your Index.html, Style.css, main.JS, etc. If it helps, the .JSON file that you have needs to call from that same directory, but inside the dist.)</li>
+            </ul>
+            <p>Now, you may notice that your HTML page is publishing, but your shapes are not. Don't panic, this is where we do some clean up.</p>
+            <p>At this point, we want to go back to our main.js file and make a few changes.</p>
+            <ul>
+            <li>At the top of our document, we want to make sure we remove the import lines that aren't necessary. Here's an example:</li>
+                <pre>import * as THREE from 'https://cdn.skypack.dev/three@0.128.0/build/three.module.js';</pre>
+                <pre>import { OrbitControls } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/controls/OrbitControls.js';</pre>
+                <pre>import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/loaders/GLTFLoader.js';</pre>
+                <p>These are the only import lines I have. I commented out the other ones, mostly the ones left over from when we made the vite project.</p>
+
+                <li>Now, we want to make sure that our github isn't ignoring anything on default. You may need to go to your .gitignore file and comment out the line that causes github to ignore dist. Your code may look like this:</li>
+                <pre># dist</pre>
+                <li>You may need to change your index.html file to actually read your main.js file. When we deploy to gh-pages, it's reading solely from your dist folder. This means your <code>src</code> needs to look like this:</li>
+                <pre><code>src="main.js"</code></pre>
+                <li>If you're still getting issues with displaying your environment on gh-pages, inspect the page and go to the console log. This will help give you an idea on what's wrong or if you missed something in the above steps.</li>
+                <p>Alright, now that you've made some changes for the betterment of your project, push to your main repo! Then you can run<code>npm run deploy</code> to deploy these changes to your gh-pages branch.</p>
+            </ul>
+
         </div>
     </section>
 
